@@ -223,7 +223,6 @@ $(document).ready(function () {
             $.post('https://script.google.com/macros/s/AKfycby9QTCcCpmwPGL_gpriUzKobDD1plNEfma9cog059ggWT1zVMtTIlcWpopTziCHz5Oi/exec', data)
                 .done(function (data) {
                     console.log(data);
-                    console.log("hola mundo")
                     if (data.result === "error") {
                         $('#alert-wrapper').html(alert_markup('danger', data.message));
                     } else {
