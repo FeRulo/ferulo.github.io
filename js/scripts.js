@@ -176,6 +176,8 @@ $(document).ready(function () {
     });
 
     /********************** Add to Calendar **********************/
+    var title = "Boda de Nata & Fer ❤️";
+    console.log(title)
     var myCalendar = createCalendar({
         options: {
             class: '',
@@ -184,23 +186,23 @@ $(document).ready(function () {
         },
         data: {
             // Event title
-            title: "Ram and Antara's Wedding",
+            title: title,
 
             // Event start date
-            start: new Date('Nov 27, 2017 10:00'),
+            start: new Date('Mar 08, 2025 16:00'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('Nov 29, 2017 00:00'),
+            end: new Date('Mar 08, 2025 23:00'),
 
             // Event Address
-            address: 'ITC Fortune Park Hotel, Kolkata',
+            address: "HACIENDA GATO DORADO, La Aldea, Tenjo, Cundinamarca, Colombia",
 
             // Event Description
-            description: "We can't wait to see you on our big day. For any queries or issues, please contact Mr. Amit Roy at +91 9876543210."
+            description: "No podemos esperar a verte en nuestro gran día. Para cualquier consulta o problema, por favor contacta a Sra Nancy Coronado +57 3008193798"
         }
     });
 
@@ -218,9 +220,10 @@ $(document).ready(function () {
             && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbyo0rEknln8LedEP3bkONsfOh776IR5lFidLhJFQ6jdvRiH4dKvHZmtoIybvnxpxYr2cA/exec', data)
+            $.post('https://script.google.com/macros/s/AKfycby9QTCcCpmwPGL_gpriUzKobDD1plNEfma9cog059ggWT1zVMtTIlcWpopTziCHz5Oi/exec', data)
                 .done(function (data) {
                     console.log(data);
+                    console.log("hola mundo")
                     if (data.result === "error") {
                         $('#alert-wrapper').html(alert_markup('danger', data.message));
                     } else {
@@ -241,9 +244,9 @@ $(document).ready(function () {
 
 // Google map
 function initMap() {
-    var location = {lat: 22.5932759, lng: 88.27027720000001};
+    var location = {lat: 4.818689174038412, lng: -74.13221711779697,};
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
-        zoom: 15,
+        zoom: 17,
         center: location,
         scrollwheel: false
     });
@@ -255,9 +258,9 @@ function initMap() {
 }
 
 function initBBSRMap() {
-    var la_fiesta = {lat: 20.305826, lng: 85.85480189999998};
+    var la_fiesta = {lat: 4.818689174038412, lng: -74.13221711779697,};
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
-        zoom: 15,
+        zoom: 17,
         center: la_fiesta,
         scrollwheel: false
     });

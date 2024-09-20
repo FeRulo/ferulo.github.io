@@ -15,17 +15,18 @@
         google: function(event) {
             var startTime = formatTime(event.start);
             var endTime = calculateEndTime(event);
-
+                
             var href = encodeURI([
                 'https://www.google.com/calendar/render',
                 '?action=TEMPLATE',
-                '&text=' + (event.title || ''),
                 '&dates=' + (startTime || ''),
                 '/' + (endTime || ''),
                 '&details=' + (event.description || ''),
                 '&location=' + (event.address || ''),
                 '&sprop=&sprop=name:'
-            ].join(''));
+            ].join('')).concat(
+                '&text=' + (encodeURIComponent(event.title) || ''));
+            console.log(href)
             return '<a class="icon-google" target="_blank" href="' +
                 href + '">Google Calendar</a>';
         },
